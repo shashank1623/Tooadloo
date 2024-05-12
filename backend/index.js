@@ -1,6 +1,7 @@
 const express = require('express')
 const {createTodo ,updateTodo } = require("./types")
 const {todo} = require('./db')
+const cors = require("cors")
 const app = express()
 
 const port = 8080
@@ -10,6 +11,7 @@ const port = 8080
 //     title : String;
 //     description : String
 // }
+app.use(cors())
 app.use(express.json())
 app.get('/', function (req,res){
     res.send(`Hi there!`)
