@@ -19,6 +19,7 @@ model User{
   password String
   firstName String
   lastName String
+  todos Todo[]
 }
 //Add a Users and a Todo table in your application. Don’t worry about foreign keys  / relationships  just yet
 
@@ -28,5 +29,6 @@ model Todo{
   description String
   done Boolean @default(false)
   userId Int
+  user User @relation(fields: [userId] , references: [id])
 }
 
